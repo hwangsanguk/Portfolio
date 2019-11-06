@@ -7,12 +7,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wook's Portfolios</title>
 </head>
+
 <body>
+   
+
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    
-    <h1>Wook's Portfolios</h1>
+    <script type="text/babel">
+    class Navlink extends React.Component{
+        render(){
+            return(
+                <a href={`#${this.props.itemName}`}>
+                {this.props.itemName}
+                </a>
+            )
+        }
+    }
+    const Navigation =() =>{
+        <nav className="navigation">
+        <img src="http://placegold.it/100x100" alt="avator" className="avator" />
+        </nav>
+    }
+    const Intro =() =>{
+        <div>
+        <div id="INTRO" className="section">
+            <h1>Wook's Portfolios</h1>
+        </div>
+        <div>
+            <a href="mailto:t01092702260@gmail.com">t01092702260@gamil.com</a>
+        </div>
+    </div>
+    }
+    const projects = [
+        {
+            name:"프로젝트1",
+            time:"2019~2020",
+            summary : "자세히",
+            epilogue: "....",
+            resultURL: [
+                "https://"
+            ]
+        }
+    ]
+    const App = () =>{
+        <div>
+            <Navigation />
+            <div>
+                <div>
+                    <Intro />
+                </div>
+            </div>
+        </div>
+    };
+    ReactDOM.render(<App />, document.querySelector('#root'))
+    </script>
+     <div id="root"></div>
+
 </body>
 
 </html>
