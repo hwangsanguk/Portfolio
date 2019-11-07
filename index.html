@@ -1,69 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wook's Portfolios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
 </head>
-
 <body>
-   
-
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script type="text/babel">
-    class Navlink extends React.Component{
-        render(){
-            return(
-                <a href={`#${this.props.itemName}`}>
-                {this.props.itemName}
-                </a>
-            )
-        }
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    class NavLink extends React.Component {
+      render() {
+        return (
+          <a href={`#${this.props.itemName}`} className="nav-item">
+            {this.props.itemName}
+          </a>
+        );
+      }
     }
-    const Navigation =() =>{
-        <nav className="navigation">
-        <img src="http://placegold.it/100x100" alt="avator" className="avator" />
-        </nav>
-    }
-    const Intro =() =>{
+    const Navigation = () => (
+      <nav className="navigation">
+        <img
+          src="http://placehold.it/100x100"
+          alt="avatar"
+          className="avator"
+        />
+        <NavLink itemName="INTRO" />
+        <NavLink itemName="프로젝트1" />
+        <NavLink itemName="프로젝트2" />
+      </nav>
+    );
+    const Intro = () => (
+      <div id="INTRO">
+        <h1>Wook's portfolio</h1>
         <div>
-        <div id="INTRO" className="section">
-            <h1>Wook's Portfolios</h1>
+          <a href="t01092702260@gmail.com">t01092702260@gmail.com</a>
+          <p>I'm SangWook, hi</p>
         </div>
         <div>
-            <a href="mailto:t01092702260@gmail.com">t01092702260@gamil.com</a>
+          <h2>경력</h2>
+          <p>something something ...</p>
+          <h2>자기소개</h2>
+          <p>something something ...</p>
         </div>
-    </div>
-    }
+      </div>
+    );
+    const Project = ({ name, time, summary, epilogue, resultsURL }) => (
+      <div id={name} className="section">
+        <h1>{name}</h1>
+        <p>{time}</p>
+        <div>
+          <h2>개요</h2>
+          <p>{summary}</p>
+          <h2>후기</h2>
+          <p>{epilogue}</p>
+          <h2>결과</h2>
+          <div>
+            {resultsURL.map(url => (
+                <img src={url} alt="projects" />
+              
+            ))}
+          </div>
+        </div>
+      </div>
+    );
     const projects = [
-        {
-            name:"프로젝트1",
-            time:"2019~2020",
-            summary : "자세히",
-            epilogue: "....",
-            resultURL: [
-                "https://"
-            ]
-        }
-    ]
-    const App = () =>{
-        <div>
-            <Navigation />
-            <div>
-                <div>
-                    <Intro />
-                </div>
-            </div>
+      {
+        name: "프로젝트1",
+        time: "2019.01~2019.02",
+        summary: "something something ...",
+        epilogue: "something something ...",
+        resultsURL: [
+          "http://placehold.it/200x200",
+          "http://placehold.it/200x200",
+          "http://placehold.it/200x200"
+        ]
+      },
+      {
+        name: "프로젝트2",
+        time: "2019.01~2019.02",
+        summary: "something something ...",
+        epilogue: "something something ...",
+        resultsURL: [
+          "http://placehold.it/200x200",
+          "http://placehold.it/200x200",
+          "http://placehold.it/200x200"
+        ]
+      }
+    ];
+    const App = () => (
+      <div>
+        <Navigation />
+        <div className="main">
+          <div className="column-start">
+            <Intro />
+            <Project {...projects[0]} />
+            <Project {...projects[1]} />
+          </div>
         </div>
-    };
-    ReactDOM.render(<App />, document.querySelector('#root'))
-    </script>
-     <div id="root"></div>
-
+      </div>
+    );
+    ReactDOM.render(<App />, document.querySelector("#root"));
+  </script>
 </body>
-
 </html>

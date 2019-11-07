@@ -1,0 +1,49 @@
+html{
+    scroll-behavior: smooth;
+}
+.avator{
+    border-radius: 50%;
+    width: 50%;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.navigation{
+    background-color: #1c1e02;
+    position: fixed;
+    width:20vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+.nav-item{
+    color: salmon;
+    font-size: 2.5vw;
+    padding-top: 20px;
+    text-decoration: none;   
+}
+.nav-item:hover{
+    color: sandybrown;
+}
+@media(max-width:750px){
+nav-item{
+    font-size:19px;
+}
+}
+
+.main{
+    display: grid;
+    grid-template-columns: minmax(150px,20vw) auto;
+}
+.column-start{
+    grid-column-start: 2;;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.section{
+    min-height: 100vh;
+    padding-top: 30px;
+}
